@@ -1,11 +1,15 @@
 <template>
     <section class="home-icons">
-        <div class="placeholder" v-for="item of iconList" :key="item.id">
-            <div class="placeholder-img">
-                <img class="img-icon" :src="item.iconUrl">
+         <swiper :options="swiperOption">
+            <swiper-slide class="swiper-icons" v-for="(page, index) of pages" :key="index">
+                <div class="placeholder" v-for="item of page" :key="item.id">
+                    <div class="placeholder-img">
+                        <img class="img-icon" :src="item.iconUrl">
+                    </div>
+                <p class="spot">{{item.iconText}}</p>
             </div>
-        <p class="spot">{{item.iconText}}</p>
-        </div>
+        </swiper-slide>
+        </swiper>
     </section>
 </template>
 
@@ -14,6 +18,9 @@ export default {
     name: 'homeIcon',
     data() {
         return {
+            swiperOption: {
+                
+            },
             iconList: [
                 {id: '0001', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',iconText: '景点门票'},
                 {id: '0002', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',iconText: '一日游'},
@@ -22,8 +29,22 @@ export default {
                 {id: '0005', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',iconText: '木兰天池'},
                 {id: '0006', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',iconText: '动植物园'},
                 {id: '0007', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',iconText: '水上玩乐'},
+                {id: '0008', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',iconText: '武汉欢乐谷'},
                 {id: '0008', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',iconText: '武汉欢乐谷'}
             ]
+        }
+    },
+    computed: {
+        pages() {
+            const pages = []
+                this.iconList.forEach((item, index)=>{
+                    const page = Math.floor(index/8) //向下取整
+                    if (!pages[page]){
+                    pages[page] = []
+                }
+                pages[page].push(item)
+            })
+            return pages        
         }
     }
 }
@@ -31,10 +52,9 @@ export default {
 
 <style lang="stylus" scoped>
     @import '~style/global.styl'
-    .home-icons
+    .swiper-icons
         margin-top: .1rem
         height: 0
-        overflow: hidden
         padding-bottom: 50%
         .placeholder
             float: left
