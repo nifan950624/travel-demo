@@ -77,7 +77,6 @@ export default {
                 height 1.6rem
                 width 1.6rem
                 margin .1rem
-                box-sizing: border-box
         .item-text
             flex 1
             min-width 0
