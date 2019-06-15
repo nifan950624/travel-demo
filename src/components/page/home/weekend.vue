@@ -2,7 +2,7 @@
 <div class="weekend">
     <div class="title">周末去哪儿</div>
     <ul class="weekend-list">
-        <li class="item border-bottom" v-for="item of recomendList" :key="item.id">
+        <li class="item border-bottom" v-for="item of weekendList" :key="item.id">
             <div class="item-img-wraper"><img class="item-img" :src="item.imgUrl"></div>
             <div class="item-text">
                 <p class="item-title">{{item.title}}</p>
@@ -18,7 +18,7 @@ export default {
     name: 'homeWeekend',
     data() {
         return {
-            recomendList: [
+            weekendList: [
                 {id: '001', 
                 title: '武汉海昌极地海洋公园',
                 summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
