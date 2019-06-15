@@ -35,7 +35,7 @@ export default {
             border-radius: 4px
             margin-left: .1rem
             .seach
-                padding 0 .1rem
+                padding 0 .1rem 0 .2rem 
         .header-right
             float: right
             text-align: center

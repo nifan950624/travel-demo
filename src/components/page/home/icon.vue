@@ -9,6 +9,7 @@
                 <p class="spot">{{item.iconText}}</p>
             </div>
         </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
     </section>
 </template>
@@ -19,7 +20,7 @@ export default {
     data() {
         return {
             swiperOption: {
-                
+                pagination: '.swiper-pagination'
             },
             iconList: [
                 {id: '0001', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',iconText: '景点门票'},
@@ -52,10 +53,14 @@ export default {
 
 <style lang="stylus" scoped>
     @import '~style/global.styl'
+    .home-icons >>>.swiper-pagination.swiper-pagination-bullets
+        transform : translateY(.2rem) 
+    .home-icons >>>.swiper-pagination-bullet.swiper-pagination-bullet-active
+        background-color: $bgColor
     .swiper-icons
         margin-top: .1rem
         height: 0
-        padding-bottom: 50%
+        padding-bottom: 54%
         .placeholder
             float: left
             height: 0
@@ -83,6 +88,7 @@ export default {
                 line-height: .4rem 
                 text-align: center 
                 color: $textColor 
-                
-
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap 
 </style>
