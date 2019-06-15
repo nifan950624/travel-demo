@@ -54,7 +54,6 @@ export default {
         display flex
         align-items center
         padding-left .2rem 
-        background #ddd
         color $textColor
         font-size .3rem 
         .hot-img
