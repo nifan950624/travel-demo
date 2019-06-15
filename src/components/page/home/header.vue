@@ -27,6 +27,7 @@ export default {
             .back-icon
                 font-size: .5rem
         .inputSeach
+            box-size: border-box 
             flex-grow: 1
             color: #ddd
             line-height 0.6rem

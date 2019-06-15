@@ -56,6 +56,7 @@ export default {
         font-size $fontSize
         position: relative 
         .hot-img
+            box-sizing: border-box
             position: absolute
             left .2rem
             top 47%
@@ -76,6 +77,7 @@ export default {
                 height 1.6rem
                 width 1.6rem
                 margin .1rem
+                box-sizing: border-box
         .item-text
             flex 1
             min-width 0
