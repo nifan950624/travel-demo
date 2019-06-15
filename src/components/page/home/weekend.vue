@@ -53,7 +53,7 @@ export default {
         padding-left .2rem 
         background #ddd
         color $textColor
-        font-size .3rem 
+        font-size $fontSize 
     .weekend-list
             .item-img-wraper
                 height 0
@@ -67,7 +67,7 @@ export default {
                     height .4rem
                     line-height .4rem
                     color #000
-                    font-size .3rem
+                    font-size $fontSize
                     ellipsis()
                 .item-summary
                     ellipsis()

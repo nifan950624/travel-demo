@@ -51,12 +51,15 @@ export default {
     @import '~style/global.styl'
     .title
         line-height .8rem
-        display flex
-        align-items center
-        padding-left .2rem 
+        text-indent .6rem 
         color $textColor
-        font-size .3rem 
+        font-size $fontSize
+        position: relative 
         .hot-img
+            position: absolute
+            left .2rem
+            top 47%
+            transform translateY(-50%) 
             display inline-flex
             height .3rem
             width .3rem
@@ -81,21 +84,23 @@ export default {
                 height .4rem
                 line-height .4rem
                 color #000
-                font-size .3rem
+                font-size $fontSize
                 ellipsis()
             .item-summary
                 ellipsis()
                 height .6rem
                 line-height .6rem
                 color #ccc
+                font-size $fontSize
             .item-button
                 height .4rem
                 line-height .4rem
                 padding 0 .2rem
-                color #ffffff
+                color white
                 background rgb(255 141 5)
                 border-radius .06rem   
                 margin-top .1rem
+                font-size  $fontSize
 </style>
 
 
