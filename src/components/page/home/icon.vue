@@ -53,6 +53,7 @@ export default {
 
 <style lang="stylus" scoped>
     @import '~style/global.styl'
+    @import '~style/fontdote.styl'    
     .home-icons >>>.swiper-pagination.swiper-pagination-bullets
         transform : translateY(.2rem) 
     .home-icons >>>.swiper-pagination-bullet.swiper-pagination-bullet-active
@@ -87,8 +88,7 @@ export default {
                 height: .4rem
                 line-height: .4rem 
                 text-align: center 
-                color: $textColor 
-                overflow: hidden
-                text-overflow: ellipsis
-                white-space: nowrap 
+                color: $textColor
+                ellipsis()
+                
 </style>

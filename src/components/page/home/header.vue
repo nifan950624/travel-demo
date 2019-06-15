@@ -32,7 +32,7 @@ export default {
             line-height 0.6rem
             background-color: #fff
             margin: 0.2rem 0
-            border-radius: 4px
+            border-radius: .06rem
             margin-left: .1rem
             .seach
                 padding 0 .1rem 0 .2rem 
