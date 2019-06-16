@@ -20,7 +20,11 @@ export default {
     cities: Object
   },
   data() {
-    return {touchStatus: false}
+    return {
+        touchStatus: false,
+        scrollY : '',
+        moveTimer : null 
+      }
   },
   computed: {
     letters () {
@@ -33,6 +37,9 @@ export default {
       } 
     }
   },
+  updated(){
+    this.scrollY = this.$refs['A'][0].offsetTop
+  },
   methods:{
     handleLetterClick(e) {
      this.$emit('change',e.currentTarget.innerText)
@@ -42,11 +49,16 @@ export default {
     },
     handleTouchMove(e) {
       if (this.touchStatus){
-      const moverace =  e.touches[0].clientY - 78.2 - this.$refs['A'][0].offsetTop
-      let index = Math.floor(moverace / 23.6) 
-      if (index >= 0 && index < this.letters.length){
-          this.$emit('change',this.letters[index])
+        if (this.moveTimer){
+          clearTimeout('this.moveTimer')
         }
+        this.moveTimer = setTimeout(()=>{
+          const moverace =  e.touches[0].clientY - 78.2 - this.scrollY
+          let index = Math.floor(moverace / 23.6) 
+            if (index >= 0 && index < this.letters.length){
+              this.$emit('change',this.letters[index])
+          }
+        },16)
       }
     },
     handleTouchEnd(e) {
