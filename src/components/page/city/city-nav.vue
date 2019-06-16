@@ -1,7 +1,15 @@
 <template>
   <div class="nav">
     <ul class="navList">
-      <li class="alphabet" v-for="(item, key) of cities" :key="key">{{key}}</li>
+      <li class="alphabet" 
+      v-for="item of letters" 
+      :key="item"
+      @click="handleLetterClick" 
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+      :ref="item"
+      >{{item}}</li>
     </ul>
   </div>
 </template>
@@ -10,6 +18,40 @@ export default {
   nmae: 'cityNav',
   props:{
     cities: Object
+  },
+  data() {
+    return {touchStatus: false}
+  },
+  computed: {
+    letters () {
+      let letters = []
+      if (this.cities){
+        for (let item in this.cities){
+          letters.push(item)
+        }
+        return letters 
+      } 
+    }
+  },
+  methods:{
+    handleLetterClick(e) {
+     this.$emit('change',e.currentTarget.innerText)
+    },
+    handleTouchStart(e) {
+      this.touchStatus = true
+    },
+    handleTouchMove(e) {
+      if (this.touchStatus){
+      const moverace =  e.touches[0].clientY - 78.2 - this.$refs['A'][0].offsetTop
+      let index = Math.floor(moverace / 23.6) 
+      if (index >= 0 && index < this.letters.length){
+          this.$emit('change',this.letters[index])
+        }
+      }
+    },
+    handleTouchEnd(e) {
+      this.touchStatus = false
+    }
   }
 }
 </script>

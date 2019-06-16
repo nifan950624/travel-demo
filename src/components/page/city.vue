@@ -2,11 +2,15 @@
 <div>
     <city-header></city-header>
     <seach-city></seach-city>
-    <city-list 
+    <city-list
+    :letter="letter" 
     :cities="cities" 
     :hotCities="hotCities"
     ></city-list>
-    <city-nav :cities="cities"></city-nav>  
+    <city-nav 
+    :cities="cities"
+    @change="handleChangeClick"
+    ></city-nav>  
 </div>
 </template>
 
@@ -27,7 +31,8 @@ export default {
     data(){
         return {
             cities: {},
-            hotCities: [],    
+            hotCities: [],
+            letter: ''    
         }
     },
     methods: {
@@ -37,6 +42,9 @@ export default {
                this.cities = allcities.cities
                this.hotCities = allcities.hotCities
             })
+        },
+        handleChangeClick(letter) {
+            this.letter = letter
         }
     },
     mounted(){
