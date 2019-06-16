@@ -4,9 +4,9 @@
             <swiper-slide class="swiper-icons" v-for="(page, index) of pages" :key="index">
                 <div class="placeholder" v-for="item of page" :key="item.id">
                     <div class="placeholder-img">
-                        <img class="img-icon" :src="item.iconUrl">
+                        <img class="img-icon" :src="item.imgUrl">
                     </div>
-                <p class="spot">{{item.iconText}}</p>
+                <p class="spot">{{item.desc}}</p>
             </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -17,22 +17,14 @@
 <script>
 export default {
     name: 'homeIcon',
+    props: {
+        iconList: Array
+    },
     data() {
         return {
             swiperOption: {
-                pagination: '.swiper-pagination'
+                pagination: '.swiper-pagination',
             },
-            iconList: [
-                {id: '0001', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',iconText: '景点门票'},
-                {id: '0002', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',iconText: '一日游'},
-                {id: '0003', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',iconText: '武汉必游'},
-                {id: '0004', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png',iconText: '亲子游'},
-                {id: '0005', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',iconText: '木兰天池'},
-                {id: '0006', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',iconText: '动植物园'},
-                {id: '0007', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',iconText: '水上玩乐'},
-                {id: '0008', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',iconText: '武汉欢乐谷'},
-                {id: '0008', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',iconText: '武汉欢乐谷'}
-            ]
         }
     },
     computed: {

@@ -24,7 +24,7 @@ export default {
             line-height .6rem
             padding  0 .2rem
             text-align center
-            color #ccc
+            color #666
             border-radius .06rem 
 
 </style>

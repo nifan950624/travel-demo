@@ -3,55 +3,23 @@
             <div>
                 <div class="city-title border-topbottom">当前城市</div>
                 <div class="button-item">
-                    <div class="items">
-                        <div class="button" >北京</div>
+                    <div class="items" >
+                        <div class="button">北京</div>
                     </div>
                 </div>
                 <div class="city-title border-topbottom">热门城市</div>
                 <div class="button-item">
-                    <div class="items">
-                        <div class="button" >北京</div>
-                    </div>
-                    <div class="items">
-                        <div class="button" >北京</div>
-                    </div>
-                    <div class="items">
-                        <div class="button" >北京</div>
-                    </div>
-                    <div class="items">
-                        <div class="button" >北京</div>
-                    </div>
-                    <div class="items">
-                        <div class="button" >北京</div>
+                    <div class="items" v-for="item of hotCities" :key="item.id">
+                        <div class="button" >{{item.name}}</div>
                     </div>
                 </div>
-                <div class="city-item">
-                    <div class="city-title border-topbottom">A</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div> 
-                </div>
-                <div class="city-item">
-                    <div class="city-title border-topbottom">A</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div> 
-                </div>
-                <div class="city-item">
-                    <div class="city-title border-topbottom">A</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div>
-                    <div class= "cityItemName border-bottom">阿拉尔</div> 
-                </div>    
+                <div class="city-item" v-for="(item, key) of cities" :key="key">
+                        <div class= "city-title border-topbottom">{{key}}</div>
+                        <div class= "cityItemName border-bottom" 
+                        v-for="innerItem of item" 
+                        :key="innerItem.id"
+                        >{{innerItem.name}}</div>
+                </div>   
             </div>      
         </div>           
 </template>
@@ -60,6 +28,10 @@
 import BScroll from 'better-scroll'
 export default {
     name: 'cityList',
+    props: {
+        cities: Object,
+        hotCities: Array
+    },
     mounted() {
         this.scoll = new BScroll(this.$refs.wrapper)
     }
@@ -75,7 +47,7 @@ export default {
           border-color rgb(206 206 206)
     .border-bottom
         &:after
-          border-color rgb(206 206 206) 
+          border-color rgb(206 206 206)
     .list
         position absolute
         top 1.6rem
@@ -90,7 +62,7 @@ export default {
         .button-item
             overflow hidden
             padding-top .1rem
-            padding-right .6rem 
+            padding-right .45rem 
             .items
                 float left
                 width 33.33%

@@ -2,11 +2,11 @@
 <div class="recomend">
     <div class="title"><span class="hot-img"><img class="hotList" src="http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png"></span>热销推荐</div>
     <ul class="recomend-list">
-        <li class="item border-bottom" v-for="item of recomendList" :key="item.id">
+        <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
             <img class="item-img" :src="item.imgUrl">
             <div class="item-text">
                 <p class="item-title">{{item.title}}</p>
-                <p class="item-summary">{{item.summary}}</p>
+                <p class="item-summary">{{item.desc}}</p>
                 <button class="item-button">查看详情</button>
             </div>
         </li>
@@ -17,32 +17,12 @@
 <script>
 export default {
     name: 'homeRecomend',
-    data() {
-        return {
-            recomendList: [
-                {id: '001', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1504/47/4730a0c01664b63d.water.jpg_200x200_d7f52253.jpg'
-                },
-                 {id: '002', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1504/47/4730a0c01664b63d.water.jpg_200x200_d7f52253.jpg'
-                },
-                 {id: '003', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1504/47/4730a0c01664b63d.water.jpg_200x200_d7f52253.jpg'
-                },
-                 {id: '004', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1504/47/4730a0c01664b63d.water.jpg_200x200_d7f52253.jpg'
-                }        
-            ]
-        }
-    }
+    props: {
+        recommendList : Array
+    },
+    methods:{
+       
+    },
 }
 </script>
 
@@ -91,7 +71,7 @@ export default {
                 ellipsis()
                 height .6rem
                 line-height .6rem
-                color #ccc
+                color #666
                 font-size $fontSize
             .item-button
                 height .4rem

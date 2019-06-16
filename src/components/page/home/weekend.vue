@@ -6,7 +6,7 @@
             <div class="item-img-wraper"><img class="item-img" :src="item.imgUrl"></div>
             <div class="item-text">
                 <p class="item-title">{{item.title}}</p>
-                <p class="item-summary">{{item.summary}}</p>
+                <p class="item-summary">{{item.desc}}</p>
             </div>
         </li>
     </ul>
@@ -16,32 +16,9 @@
 <script>
 export default {
     name: 'homeWeekend',
-    data() {
-        return {
-            weekendList: [
-                {id: '001', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/source/1505/d5/abe8a48a6ef8bf.jpg_r_640x214_7c41cc81.jpg'
-                }, 
-                {id: '002', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/source/1505/d5/abe8a48a6ef8bf.jpg_r_640x214_7c41cc81.jpg'
-                }, 
-                {id: '003', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/source/1505/d5/abe8a48a6ef8bf.jpg_r_640x214_7c41cc81.jpg'
-                }, 
-                {id: '004', 
-                title: '武汉海昌极地海洋公园',
-                summary: '企鹅是南极的土著居民，人们把它称为南极的象征。企鹅的跳水本领可与世界跳水冠军相媲美，它们能跳出水面2米多高，可以说企鹅是当之无愧的游泳健将。', 
-                imgUrl: 'http://img1.qunarzz.com/sight/source/1505/d5/abe8a48a6ef8bf.jpg_r_640x214_7c41cc81.jpg'
-                },     
-            ]
-        }
-    }
+    props: {
+        weekendList: Array
+    },
 }
 </script>
 

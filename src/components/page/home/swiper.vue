@@ -1,7 +1,7 @@
 <template>
 <div class="wraper">
     <swiper :options="swiperOption">
-    <swiper-slide v-for="item of swiperList" :key="item.id"><img class="swiper-img" :src="item.url"></swiper-slide>
+    <swiper-slide v-for="item of swiperList" :key="item.id"><img class="swiper-img" :src="item.imgUrl"></swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>
 </div>
@@ -9,26 +9,21 @@
 
 <script>
 export default {
-  name: 'homeSwiper',
-  data() {
-    return {
-      swiperOption: {
-          pagination: '.swiper-pagination',
-          loop : true
+    name: 'homeSwiper',
+    props:{
+        swiperList: Array
     },
-    swiperList: [
-                {id: '001', 
-                url: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/667757f979fa38b12c4986f9930b6695.jpg_750x200_6cca7add.jpg'},
-                {id: '002', 
-                url: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg'},
-                {id: '003', 
-                url: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/292b7afd8042e0fde68b5c09d4a22d27.jpg_750x200_42d7391a.jpg'},
-                {id: '004', 
-                url: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/fec63fd018410720a081d0a651831e55.jpg_750x200_8fc4c0d3.jpg'}
-            ]
+    data() {
+        return {
+            swiperOption: {
+            pagination: '.swiper-pagination',
+            loop : true
+            }
         }
     }
 }
+  
+
 </script>
 
 <style scoped lang="stylus">
@@ -38,7 +33,7 @@ export default {
         width: 100%
         height: 0
         overflow: hidden
-        padding-bottom: 26.7%
+        padding-bottom: 31.99%
         background: #eee 
         .swiper-img
             width: 100%
