@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import axios from 'axios'
 import cityHeader from './city/header'
 import seachCity from './city/seachCity'
@@ -29,6 +30,9 @@ export default {
         seachCity,
         cityList,
         cityNav
+    },
+    computed: {
+        ...mapState(['city'])
     },
     data(){
         return {

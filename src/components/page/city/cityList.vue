@@ -5,7 +5,7 @@
                 <div class="button-item">
                     <div class="items" >
                         <div class="button">
-                            {{this.$store.state.city}}</div>
+                            {{this.city}}</div>
                     </div>
                 </div>
                 <div class="city-title border-topbottom">热门城市</div>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import BScroll from 'better-scroll'
 export default {
     name: 'cityList',
@@ -40,6 +41,9 @@ export default {
         cities: Object,
         hotCities: Array,
         letter: String
+    },
+    computed: {      
+        ...mapState(['city'])
     },
     watch: {
         letter () {
