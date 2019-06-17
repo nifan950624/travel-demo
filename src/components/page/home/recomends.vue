@@ -2,14 +2,19 @@
 <div class="recomend">
     <div class="title"><span class="hot-img"><img class="hotList" src="http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png"></span>热销推荐</div>
     <ul class="recomend-list">
-        <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+        <router-link
+        tag="li" 
+        class="item border-bottom" 
+        v-for="item of recommendList" 
+        :key="item.id"
+        :to="'/detail/' + item.id" >
             <img class="item-img" :src="item.imgUrl">
             <div class="item-text">
                 <p class="item-title">{{item.title}}</p>
                 <p class="item-summary">{{item.desc}}</p>
                 <button class="item-button">查看详情</button>
             </div>
-        </li>
+        </router-link>
     </ul>
 </div>  
 </template>
@@ -19,9 +24,6 @@ export default {
     name: 'homeRecomend',
     props: {
         recommendList : Array
-    },
-    methods:{
-       
     },
 }
 </script>
