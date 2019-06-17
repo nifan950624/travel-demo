@@ -6,7 +6,11 @@
         >
             <div>
                 <ul class="city-select">
-                    <li class="city-item border-topbottom"  v-for="city of list" :key="city.id">{{city.name}}</li>
+                    <li class="city-item border-topbottom"  
+                    v-for="city of list" 
+                    :key="city.id"
+                     @click="handleCityClick(city.name)"
+                    >{{city.name}}</li>
                     <li class="city-item" v-show="!list.length">没有搜索到匹配内容</li>
                 </ul>
             </div>     
@@ -27,9 +31,6 @@ export default {
             timer: null,
             list: []
         }
-    },
-    mounted() {
-        this.scroll = new BScroll(this.$refs.wrapper) 
     },
     watch: {
         keywords () {
@@ -52,6 +53,15 @@ export default {
                 this.list = list
             },160)    
         }
+    },
+    methods: {
+        handleCityClick(city) {
+            this.$store.commit('change',city)
+            this.$router.push('/')
+        }
+    },
+    mounted() {
+        this.scroll = new BScroll(this.$refs.wrapper) 
     },        
 }
 </script>

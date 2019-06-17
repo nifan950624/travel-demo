@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      city: '',
       iconList: [],
       recommendList:[],
       swiperList: [],

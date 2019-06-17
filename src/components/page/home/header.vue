@@ -2,7 +2,7 @@
 <header class="homeheader">
     <div class="header-left"><div class="iconfont back-icon">&#xe600;</div></div>
     <div class="inputSeach"><span class="iconfont seach">&#xe601;</span>输入城市/经典/游玩主题</div>
-    <router-link to="/city"><div class="header-right">城市<span class="iconfont">&#xe602;</span></div></router-link>
+    <router-link to="/city"><div class="header-right">{{this.$store.state.city}}<span class="iconfont">&#xe602;</span></div></router-link>
 </header>
 </template>
 
