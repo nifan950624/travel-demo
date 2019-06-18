@@ -2,21 +2,22 @@
 <div>
   <router-link to="/">
     <div
+      v-if="listenScroll===false"
       class="back-icon"
-      v-show="listenScroll"
       >
       <span class="iconfont back-icon-item">&#xe600;</span>
     </div>
   </router-link>
   <div class="header">
-    <div class="detail-header"
+    <div 
+    class="detail-header"
     :style="changeStyle"
+    v-show="listenScroll"
     >
       <router-link to="/"><div class="iconfont detail-back-home">&#xe600;</div></router-link>
       景点详情
     </div>
   </div>
-  <div class="ceshi"></div>
 </div>
 
   
@@ -27,7 +28,7 @@ export default {
   name: 'detailTitle',
   data() {
     return {
-      listenScroll: true,
+      listenScroll: false,
       changeStyle: {
         opacity: 0,
       }
@@ -37,7 +38,7 @@ export default {
     handleScroll() {
       let top = window.scrollY
       if (top > 0) {
-        this.listenScroll = false
+        this.listenScroll = true
         let opacity = top/140
         if (opacity > 1) {
           opacity = 1
@@ -46,7 +47,7 @@ export default {
           opacity
         }
       }else{
-        this.listenScroll = true
+        this.listenScroll = false
       }
     }
   },
