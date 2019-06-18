@@ -2,9 +2,6 @@
   <div>
   <div class="banner" 
         @click="handleBannerClick">
-        <div
-        @click="handleBackClick"
-        class="back-icon"><span class="iconfont back-icon-item">&#xe600;</span></div>
         <div class="banner-img">
           <img class="img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg">
         </div>
@@ -29,19 +26,11 @@ export default {
   data() {
     return {
       imgs: ['http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg','http://img1.qunarzz.com/sight/p55/201211/04/fbcab3e5d6479ce893835fbb.jpg_r_800x800_6360f514.jpg'],
-      galleryShow: false,
-      judge: false
+      galleryShow: false
     }
   },
   methods: {
-    handleBackClick(e) {
-    this.judge = true
-     this.$router.push('/')
-    },
     handleBannerClick() {
-      if (this.judge) {  
-        return  this.judge = false
-      }
       this.galleryShow = true
     },
     close() {
@@ -57,20 +46,6 @@ export default {
 <style lang="stylus" scoped>
 .banner
   position relative
-  .back-icon
-    position absolute
-    left .1rem
-    top .1rem
-    display flex
-    justify-content center 
-    align-items center
-    height .6rem
-    width .6rem
-    border-radius 50%
-    background rgba(0 0 0 0.5)
-    color white
-    .back-icon-item
-      font-size .45rem 
   .banner-img
     overflow hidden
     height 0
