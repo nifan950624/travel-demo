@@ -3,16 +3,16 @@
   <div class="banner" 
         @click="handleBannerClick">
         <div class="banner-img">
-          <img class="img" src="//img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg">
+          <img class="img" :src="bannerImg">
         </div>
         <div class="banner-text">
           <div class= "banner-icon">
-            <span class="iconfont icon-item">&#xe60d;</span><span class="number">8</span></div>
-          <p class="title">故宫(AAAAA景区)</p>
+            <span class="iconfont icon-item">&#xe60d;</span><span class="number">{{gallaryImgs.length}}</span></div>
+          <p class="title">{{sightName}}</p>
         </div>
       </div>
       <gallery 
-      :imgsList="imgs" 
+      :imgsList="gallaryImgs" 
       v-show="galleryShow"
       @back="close"
       ></gallery>
@@ -23,9 +23,13 @@
 import gallery from 'comment/gallery.vue'
 export default {
   name: 'banner',
+  props: {
+    bannerImg: String,
+    sightName: String,
+    gallaryImgs: Array
+  },
   data() {
     return {
-      imgs: ['http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg','http://img1.qunarzz.com/sight/p55/201211/04/fbcab3e5d6479ce893835fbb.jpg_r_800x800_6360f514.jpg'],
       galleryShow: false
     }
   },

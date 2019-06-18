@@ -59,8 +59,7 @@ export default {
     justify-content  center
     .wrapper
       height 0
-      width 100%
-      padding-bottom 67%
+      padding-bottom  100%
       .img
         width 100%
       .swiper-pagination

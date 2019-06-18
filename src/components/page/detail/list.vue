@@ -1,14 +1,14 @@
 <template>
  <div class="list">
   <div 
-    v-for="(item, index) of titleList"
+    v-for="(item, index) of categoryList"
     :key="index"
     class="item border-bottom">
       <div class="title"></div>
       <span class="item-img"></span>
       <span class="item-title">{{item.title}}</span>
       <div v-if="item.children">
-        <detail-list :titleList="item.children"></detail-list>
+        <detail-list :categoryList="item.children"></detail-list>
       </div>
   </div>
 </div>
@@ -19,7 +19,7 @@
 export default {
   name: 'detailList',
   props: {
-    titleList: Array
+    categoryList: Array
   },
   data() {
     return {

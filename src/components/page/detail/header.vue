@@ -82,6 +82,7 @@ export default {
     left 0
     right 0
     left 0
+    z-index 2
     .detail-header
       line-height $headerHeight
       background $bgColor
