@@ -8,19 +8,24 @@
         <div class="banner-text">
           <div class= "banner-icon">
             <span class="iconfont icon-item">&#xe60d;</span><span class="number">{{gallaryImgs.length}}</span></div>
-          <p class="title">{{sightName}}</p>
+            <div class="placeholder">
+              <p class="title">{{sightName}}</p>
+            </div>
         </div>
       </div>
-      <gallery 
-      :imgsList="gallaryImgs" 
-      v-show="galleryShow"
-      @back="close"
-      ></gallery>
+      <fade-animation> 
+        <gallery 
+        :imgsList="gallaryImgs" 
+        v-show="galleryShow"
+        @back="close">
+        </gallery>
+      </fade-animation>
   </div>
 </template>
 
 <script>
 import gallery from 'comment/gallery.vue'
+import fadeAnimation from 'comment/fadeAnimation.vue'
 export default {
   name: 'banner',
   props: {
@@ -42,7 +47,8 @@ export default {
     },
   },
   components: {
-    gallery
+    gallery,
+    fadeAnimation
   }
 }
 </script>
@@ -62,11 +68,15 @@ export default {
     bottom 0
     right 0
     line-height .5rem
-    padding .2rem
     color white
-    background linear-gradient(bottom rgba(0 0 0 0),rgba(0, 0, 0, 0.3))
-    .title
-      font-size .37rem
+    .placeholder
+      height 0
+      padding-bottom .7rem
+      overflow hidden
+      .title
+        font-size .35rem
+        padding 0 .1rem .2rem .1rem
+        background linear-gradient(to top,rgba( 0 0 0 0.5), rgba( 0 0 0 0));
     .banner-icon
       width 1.2rem
       text-align center 
@@ -74,6 +84,7 @@ export default {
       border-radius .32rem
       background rgba(0 0 0 0.5)
       padding-bottom .1rem
+      margin-bottom .05rem
       .icon-item
         font-size .13rem
       .number
