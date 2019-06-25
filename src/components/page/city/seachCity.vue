@@ -1,6 +1,10 @@
 <template>
     <div class="city-seach">
-        <input class="input-city" v-model="keywords" type="text" placeholder="输入城市或拼音">
+        <input class="input-city" 
+        v-model="keywords" type="text" 
+        placeholder="输入城市或拼音"
+        @focus="handleFocus"
+        @focusout="handleFocusEnd">
         <div class="seachPage" ref='wrapper'
         v-show="keywords"
         >
@@ -9,7 +13,7 @@
                     <li class="city-item border-topbottom"  
                     v-for="city of list" 
                     :key="city.id"
-                     @click="handleCityClick(city.name)"
+                     @click.prevent="handleCityClick(city.name)"
                     >{{city.name}}</li>
                     <li class="city-item" v-show="!list.length">没有搜索到匹配内容</li>
                 </ul>
@@ -57,11 +61,21 @@ export default {
     methods: {
         handleCityClick(city) {
             this.$store.commit('change',city)
+            this.keywords = ''
             this.$router.push('/')
+        },
+        handleFocus(e) {
+            e.path[0].setAttribute('placeholder','')
+        },
+        handleFocusEnd(e) {
+            e.path[0].setAttribute('placeholder','输入城市或拼音')
         }
     },
     mounted() {
-        this.scroll = new BScroll(this.$refs.wrapper) 
+        this.scroll = new BScroll(this.$refs.wrapper,
+        {
+            click: true
+        }) 
     },        
 }
 </script>

@@ -25,7 +25,7 @@
                         <div class= "cityItemName border-bottom" 
                         v-for="innerItem of item" 
                         :key="innerItem.id"
-                        @click="handleCityClick(innerItem.name)"
+                        @click.prevent="handleCityClick(innerItem.name)"
                         >{{innerItem.name}}</div>
                 </div>   
             </div>      
@@ -60,7 +60,10 @@ export default {
             }
         },
     mounted() {
-        this.scroll = new BScroll(this.$refs.wrapper)
+        this.scroll = new BScroll(this.$refs.wrapper,
+        {
+            click: true
+        })
     }
 }
 </script>
