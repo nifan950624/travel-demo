@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     handleScroll() {
+      console.log(1)
       let top = window.scrollY
       if (top > 0) {
         this.listenScroll = true
@@ -51,10 +52,12 @@ export default {
       }
     }
   },
-  activated() {
-    window.addEventListener('scroll',this.handleScroll)
+  created() {
+    this.$nextTick(() => {
+      window.addEventListener('scroll',this.handleScroll)
+    })   
   },
-  deactivated() {
+  destroyed() {
     window.removeEventListener('scroll',this.handleScroll)
   }
 }
